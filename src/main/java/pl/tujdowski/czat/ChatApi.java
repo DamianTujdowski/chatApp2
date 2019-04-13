@@ -5,15 +5,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ChatApi {
-    private static ChatMessage chatMessage;
+    private static List<ChatMessage> chatMessage = new ArrayList<>();
 
     @PostMapping("/handleChatMessage")
+    @ResponseBody
     public void handleChatMessage(@RequestBody ChatMessage chatMessage) {
-        this.chatMessage = chatMessage;
+        this.chatMessage.add(chatMessage);
         System.out.println(chatMessage);
     }
 

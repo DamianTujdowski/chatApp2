@@ -7,7 +7,14 @@
 </head>
 <body>
 
-<p th:text="${chatMessage.getValue()}" />
+<!--<p th:text="${chatMessage.getValue()}" />-->
+
+<div th:if="${chatMessage != null}">
+    <h1>Result</h1>
+    <ul>
+        <li th:each="item : ${chatMessage}" th:text="${item.getValue()}">Item description here...</li>
+    </ul>
+</div>
 
 </body>
 </html>

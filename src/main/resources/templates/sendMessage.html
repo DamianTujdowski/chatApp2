@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/chat}" th:object="${chatMessage}" method="post">
+    <p>Name: <input type="text" th:field="*{username}"></p>
+    <p>Message: <input type="text" th:field="*{value}"></p>
+    <p><input type="submit" value="Send"></p>
+</form>
+
+</body>
+</html>

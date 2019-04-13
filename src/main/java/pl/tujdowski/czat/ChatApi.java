@@ -12,7 +12,7 @@ import java.util.List;
 
 @Controller
 public class ChatApi {
-    private static List<ChatMessage> chatMessage = new ArrayList<>();
+    public static List<ChatMessage> chatMessage = new ArrayList<>();
 
     @PostMapping("/handleChatMessage")
     @ResponseBody
@@ -21,10 +21,22 @@ public class ChatApi {
         System.out.println(chatMessage);
     }
 
-    @GetMapping("/window")
+    @GetMapping("/chat")
     public String getWindow(Model model) {
         model.addAttribute("chatMessage", chatMessage);
         return "chat";
     }
+
+    @GetMapping("/sendMessage")
+    public String send(Model model) {
+        model.addAttribute("chatMessage", new ChatMessage());
+        return "sendMessage";
+    }
+
+    @GetMapping("/iframe")
+    public String iframe() {
+        return "iframe";
+    }
+
 
 }
